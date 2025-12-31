@@ -39,6 +39,7 @@ def encode(word,key):
     return new_word
 
 def decode(word,key):
+    print(">>> DECODE FUNCTION IS RUNNING <<<")
     decoded_word = ""
     key = key.lower()
     l1 = list('!"#$%&()\'*+,-./')
@@ -65,7 +66,7 @@ def decode(word,key):
             mod = 6
         row = ord(word[i]) - stddisp
         col = ord(key[i%len(key)]) - stddisp
-        decoded_word += chr(stddisp + (row+col) % mod)
+        decoded_word += chr(stddisp + (row - col) % mod)
     return decoded_word
 
 def main():
